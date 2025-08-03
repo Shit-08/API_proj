@@ -5,14 +5,12 @@ let inp=document.querySelector("#inputField");
 
 btn.addEventListener("click",async ()=>{
     list.innerText="";
-    console.log(inp.value);
-    let clgArr=await displayUniversities();
+    let clgArr=await getUniversities();
     for(li of clgArr){
         let liEle=document.createElement("li");
         liEle.innerText=li.name;
         list.append(liEle);
     }
-
 })
 
 async function getUniversities() {
@@ -24,11 +22,6 @@ async function getUniversities() {
         console.error("Error fetching universities:", error);
         return [];
     }
-}
-
-async function displayUniversities() {
-    const universities = await getUniversities();
-    return universities; 
 }
 
 
